@@ -1,0 +1,3 @@
+[submodule "mailpit"]
+	path = mailpit
+	url = git@github.com:sanderbaas/mailpit-pwa.git
