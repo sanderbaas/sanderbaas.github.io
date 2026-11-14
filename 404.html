@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11131a">
+  <title>404 — Page not found | baasmail.nl</title>
+  <meta name="description" content="404 — Page not found.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #f7f8fc;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(102, 90, 255, 0.18), transparent 42%),
+        #11131a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(100%, 680px);
+      text-align: center;
+    }
+
+    .mark {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 28px;
+      display: grid;
+      place-items: center;
+      color: #11131a;
+      background: #b8ffcf;
+      border-radius: 21px;
+      font-size: 31px;
+      font-weight: 800;
+      box-shadow: 0 0 50px rgba(184, 255, 207, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.075em;
+    }
+
+    h1 span {
+      color: #b8ffcf;
+    }
+
+    .message {
+      margin: 18px 0 0;
+      color: #b9bfd0;
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      font-weight: 500;
+    }
+
+    .rule {
+      width: 48px;
+      height: 3px;
+      margin: 34px auto;
+      border: 0;
+      border-radius: 3px;
+      background: #b8ffcf;
+    }
+
+    a {
+      display: inline-block;
+      padding: 12px 20px;
+      color: #11131a;
+      background: #b8ffcf;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    a:hover {
+      background: #d0ffdf;
+      transform: translateY(-2px);
+    }
+
+    a:focus-visible {
+      outline: 3px solid #f7f8fc;
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">B</div>
+    <h1><span>404</span></h1>
+    <p class="message">This page could not be found.</p>
+    <hr class="rule">
+    <a href="/">Back to home</a>
+  </main>
+</body>
+</html>
