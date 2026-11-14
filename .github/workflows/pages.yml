@@ -1,0 +1,56 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout inclusief private submodule
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+          token: ${{ secrets.FDROID_REPO_TOKEN }}
+
+      - name: Create Pages files
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='/.git/' \
+            --exclude='/.github/' \
+            --exclude='/.gitmodules' \
+            --exclude='/.gitignore' \
+            --exclude='/fdroid/' \
+            --exclude='/_site/' \
+            ./ _site/
+          mkdir -p _site/fdroid
+          cp -a fdroid/repo _site/fdroid/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1

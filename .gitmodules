@@ -1,3 +1,6 @@
 [submodule "mailpit"]
 	path = mailpit
 	url = git@github.com:sanderbaas/mailpit-pwa.git
+[submodule "fdroid"]
+	path = fdroid
+	url = git@github.com:sanderbaas/fdroid.git
